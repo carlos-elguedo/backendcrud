@@ -21,6 +21,6 @@ app.use('/api/rest/providers', require('./routes/routerproviders'))
 
 //Starting the server
 app.listen(app.get('port'), ()=>{
-    console.log(`Servidor en el puerto ${app.get('port')}`);
+    console.log(`server started at port ${app.get('port')}`);
 });
 

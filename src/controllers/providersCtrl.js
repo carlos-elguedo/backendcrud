@@ -17,7 +17,7 @@ providersCtrl.createProvider = async (req, res) =>{
     //console.log(nuevoEmpleado)
     newProvider.save();
     res.json({
-        status: "Empleado guardado"
+        status: "Provider save"
     })
 }
 
@@ -41,16 +41,21 @@ providersCtrl.editProvider = async (req, res) =>{
     const {id} = req.params
 
     const provider = {
-        nombre: req.body.nombre,
-        posicion: req.body.posicion,
-        oficina: req.body.oficina,
-        salario: req.body.salario,
+        
+        address: req.body.address,
+        city: req.body.city,
+        document: req.body.document,
+        email: req.body.email,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        specialty: req.body.specialty,
+        status: req.body.status,
     }
 
     await Provider.findByIdAndUpdate(id, {$set: provider}, {new: true})
 
     res.json({
-        status: 'Empleado actializado'
+        status: 'Providers update'
     })
 }
 
@@ -60,7 +65,7 @@ providersCtrl.editProvider = async (req, res) =>{
 
 providersCtrl.deleteProvider = async (req, res) =>{
     await Provider.findByIdAndRemove(req.params.id)
-    res.json({status: "Empleado eliminado"})
+    res.json({status: "Provider Delete"})
 }
 
 
